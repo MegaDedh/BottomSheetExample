@@ -29,7 +29,21 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
 
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 // Do something for new state
-                Toast.makeText(requireContext(),"onStateChanged", Toast.LENGTH_SHORT).show()
+                when (newState) {
+                    BottomSheetBehavior.STATE_EXPANDED -> Toast.makeText(
+                        requireContext(),
+                        "STATE_EXPANDED",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    BottomSheetBehavior.STATE_COLLAPSED -> Toast.makeText(
+                        requireContext(),
+                        "STATE_COLLAPSED",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    else -> Toast.makeText(requireContext(), "onStateChanged", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
