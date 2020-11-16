@@ -28,13 +28,11 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
         val bottomSheetCallback = object : BottomSheetBehavior.BottomSheetCallback() {
 
             override fun onStateChanged(bottomSheet: View, newState: Int) {
-                // Do something for new state
-                when (newState) {
-                    BottomSheetBehavior.STATE_EXPANDED -> Toast.makeText(
-                        requireContext(),
-                        "STATE_EXPANDED",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                // You may do something for new state
+/*                when (newState) {
+                    BottomSheetBehavior.STATE_EXPANDED ->
+                        Toast.makeText(requireContext(), "STATE_EXPANDED", Toast.LENGTH_SHORT)
+                            .show()
                     BottomSheetBehavior.STATE_COLLAPSED -> Toast.makeText(
                         requireContext(),
                         "STATE_COLLAPSED",
@@ -42,8 +40,7 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
                     ).show()
                     else -> Toast.makeText(requireContext(), "onStateChanged", Toast.LENGTH_SHORT)
                         .show()
-                }
-
+                }*/
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
