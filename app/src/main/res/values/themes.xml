@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="BottomSheetContent">
+<item name="android:gravity">center</item>
+<item name="android:layout_width">match_parent</item>
+<item name="android:layout_height">100dp</item>
+<item name="android:textColor">@android:color/white</item>
+<item name="android:textSize">24dp</item>
+<item name="android:text">Bottom Sheet Content</item>
+    </style>
 </resources>

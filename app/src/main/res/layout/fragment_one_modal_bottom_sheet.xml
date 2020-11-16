@@ -1,35 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/bottom_sheet_root_element"
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="340dp"
-    android:background="@android:color/darker_gray"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/bottom_sheet_peek"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#BC9BE4"
-        android:gravity="center"
-        android:text="Bottom Sheet Peek"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/fragment_one_bottom_sheet_count"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#388E3C"
-        android:gravity="center"
-        android:text="0"
-        android:textSize="48sp"
-        android:textColor="@android:color/white" />
-
-    <TextView
+    <LinearLayout
+        android:id="@+id/bottom_sheet_root_element"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Bottom Sheet Content"
-        android:textColor="@android:color/white" />
+        android:background="@android:color/darker_gray"
+        android:divider="@drawable/divider"
+        android:orientation="vertical"
+        android:showDividers="middle">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/dismiss_internal"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#BC9BE4"
+            android:gravity="center"
+            android:text="[X] call internal dismiss()"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/dismiss_parent"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#F57C00"
+            android:gravity="center"
+            android:text="[X] call dismiss() in parent Fragment"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/add_count"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#388E3C"
+            android:gravity="center"
+            android:text="inc count [+]"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <TextView style="@style/BottomSheetContent" />
+        <TextView style="@style/BottomSheetContent" />
+        <TextView style="@style/BottomSheetContent" />
+        <TextView style="@style/BottomSheetContent" />
+        <TextView style="@style/BottomSheetContent" />
+        <TextView style="@style/BottomSheetContent" />
+        <TextView style="@style/BottomSheetContent" />
+        <TextView style="@style/BottomSheetContent" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
