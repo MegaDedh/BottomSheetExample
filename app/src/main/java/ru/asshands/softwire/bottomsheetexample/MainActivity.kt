@@ -2,22 +2,24 @@ package ru.asshands.softwire.bottomsheetexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import ru.asshands.softwire.bottomsheetexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var bind: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        bind = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bind.root)
 
-        //binding.EXAMPLE_VIEW.text = "NEW_TEXT"
-
-/*        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.main_fragment_container, Fragment1())
-            .commit()*/
+        bind.button.setOnClickListener {
+            it.visibility = View.INVISIBLE
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.main_frame, FragmentOne())
+                .commit()
+        }
     }
 }

@@ -16,53 +16,22 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
         super.onViewCreated(view, savedInstanceState)
         _bind = FragmentOneBinding.bind(view)
 
-        val llBottomSheet = bind.fragmentOneBottomSheet.bottomSheetRootElement
-        val bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet)
 
-        // настройка максимальной высоты в пикселях, НЕ dp (!!!)
-        // bottomSheetBehavior.peekHeight = 340
-        // настройка возможности скрыть элемент при свайпе вниз
-        bottomSheetBehavior.isHideable = true
-
-        // настройка колбэков при изменениях
-        val bottomSheetCallback = object : BottomSheetBehavior.BottomSheetCallback() {
-
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                // Do something for new state
-                Toast.makeText(requireContext(),"onStateChanged", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                // Do something for slide offset
-                //Toast.makeText(requireContext(),"onSlide", Toast.LENGTH_SHORT).show()
-            }
-        }
-        // добавляем созданный callback
-        bottomSheetBehavior.addBottomSheetCallback(bottomSheetCallback)
-
-
-        // настройка состояний нижнего экрана
-        // BottomSheetBehavior.STATE_COLLAPSED// свернуть
-        // BottomSheetBehavior.STATE_EXPANDED // растянутое
-        // BottomSheetBehavior.STATE_HIDDEN   // скрытое isHideable = true (!!!)
-        bind.fragmentOneContent.fragmentOneContentShow.setOnClickListener {
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        bind.fragmentOneShow.setOnClickListener {
+            Toast.makeText(context,"Click Show",Toast.LENGTH_SHORT).show()
         }
 
-        bind.fragmentOneContent.fragmentOneContentCollapse.setOnClickListener {
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bind.fragmentOneCollapse.setOnClickListener {
+            Toast.makeText(context,"Click Collapse",Toast.LENGTH_SHORT).show()
         }
 
-        bind.fragmentOneContent.fragmentOneContentHide.setOnClickListener {
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+        bind.fragmentOneHide.setOnClickListener {
+            Toast.makeText(context,"Click Hide",Toast.LENGTH_SHORT).show()
         }
 
 
-        bind.fragmentOneContent.fragmentOneContentAddCount.setOnClickListener {
-            val countValue = bind.fragmentOneBottomSheet.fragmentOneBottomSheetCount.text.toString()
-                .toIntOrNull()
-            bind.fragmentOneBottomSheet.fragmentOneBottomSheetCount.text =
-                countValue?.inc().toString()
+        bind.fragmentOneAddCount.setOnClickListener {
+            Toast.makeText(context,"AddCount",Toast.LENGTH_SHORT).show()
         }
     }
 
