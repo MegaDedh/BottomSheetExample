@@ -2,7 +2,6 @@ package ru.asshands.softwire.bottomsheetexample
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.asshands.softwire.bottomsheetexample.databinding.FragmentOneBinding
@@ -16,8 +15,14 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
         super.onViewCreated(view, savedInstanceState)
         _bind = FragmentOneBinding.bind(view)
 
-        val llBottomSheet = bind.fragmentOneBottomSheet.bottomSheetRootElement
-        val bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet)
+        // Kotlin synthetic-style (deprecated):
+        // val bottomSheet = view.fragment_one_bottom_sheet_id
+
+        // findViewById-style:
+        // val bottomSheet = view.findViewById<View>(R.id.fragment_one_bottom_sheet_id)
+
+        val bottomSheet = bind.fragmentOneBottomSheetId.bottomSheetRootElement
+        val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
 
         // настройка максимальной высоты в пикселях, НЕ dp (!!!)
         // bottomSheetBehavior.peekHeight = 340
@@ -56,23 +61,23 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
         // BottomSheetBehavior.STATE_COLLAPSED// свернуть
         // BottomSheetBehavior.STATE_EXPANDED // растянутое
         // BottomSheetBehavior.STATE_HIDDEN   // скрытое isHideable = true (!!!)
-        bind.fragmentOneContent.fragmentOneContentShow.setOnClickListener {
+        bind.fragmentOneContentId.fragmentOneContentShow.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         }
 
-        bind.fragmentOneContent.fragmentOneContentCollapse.setOnClickListener {
+        bind.fragmentOneContentId.fragmentOneContentCollapse.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
         }
 
-        bind.fragmentOneContent.fragmentOneContentHide.setOnClickListener {
+        bind.fragmentOneContentId.fragmentOneContentHide.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         }
 
 
-        bind.fragmentOneContent.fragmentOneContentAddCount.setOnClickListener {
-            val countValue = bind.fragmentOneBottomSheet.fragmentOneBottomSheetCount.text.toString()
+        bind.fragmentOneContentId.fragmentOneContentAddCount.setOnClickListener {
+            val countValue = bind.fragmentOneBottomSheetId.fragmentOneBottomSheetCount.text.toString()
                 .toIntOrNull()
-            bind.fragmentOneBottomSheet.fragmentOneBottomSheetCount.text =
+            bind.fragmentOneBottomSheetId.fragmentOneBottomSheetCount.text =
                 countValue?.inc().toString()
         }
     }

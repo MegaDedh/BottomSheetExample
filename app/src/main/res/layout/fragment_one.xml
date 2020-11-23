@@ -11,12 +11,12 @@
 
     <!-- подключение основного контента -->
     <include
-        android:id="@+id/fragment_one_content"
+        android:id="@+id/fragment_one_content_id"
         layout="@layout/fragment_one_content" />
 
     <!-- подключение нижнего экрана -->
     <include
-        android:id="@+id/fragment_one_bottom_sheet"
+        android:id="@+id/fragment_one_bottom_sheet_id"
         layout="@layout/fragment_one_bottom_sheet" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
